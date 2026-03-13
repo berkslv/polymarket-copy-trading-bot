@@ -3,7 +3,7 @@ FROM node:20-alpine AS builder
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm install
+RUN npm ci --ignore-scripts
 
 COPY tsconfig.json ./
 COPY src ./src
@@ -16,7 +16,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 COPY package*.json ./
-RUN npm install
+RUN npm ci --omit=dev --ignore-scripts
 
 COPY --from=builder /app/dist ./dist
 
