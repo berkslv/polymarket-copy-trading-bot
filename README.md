@@ -79,6 +79,33 @@ npm run health-check  # Verify configuration
 npm start             # Start trading
 ```
 
+### Run with Docker Compose
+
+Start full stack (bot + MongoDB):
+
+```bash
+docker compose up -d --build
+```
+
+Run only MongoDB (separate):
+
+```bash
+docker compose -f docker-compose.mongo.yml up -d
+```
+
+Then run bot with full compose later:
+
+```bash
+docker compose up -d --build app
+```
+
+Stop containers:
+
+```bash
+docker compose down
+docker compose -f docker-compose.mongo.yml down
+```
+
 **📖 For detailed setup instructions, see [Getting Started Guide](./docs/GETTING_STARTED.md)**
 
 ## Features
