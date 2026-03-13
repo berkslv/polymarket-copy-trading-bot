@@ -59,8 +59,7 @@ PROXY_WALLET = 'your_polygon_wallet_address'
 PRIVATE_KEY = 'your_private_key_without_0x_prefix'
 
 # MongoDB (get free database at mongodb.com/cloud/atlas)
-# The default link in your .env file is currently functional, but it is recommended that you replace it with your own.
-MONGO_URI = 'mongodb+srv://username:password@cluster.mongodb.net/database'
+MONGO_URI = 'mongodb+srv://berkslv:<db_password>@polymarket.enntdyv.mongodb.net/?appName=polymarket'
 
 # Polygon RPC (get free key at infura.io or alchemy.com)
 # The default link in your .env file is currently functional, but it is recommended that you replace it with your own.
@@ -81,29 +80,16 @@ npm start             # Start trading
 
 ### Run with Docker Compose
 
-Start full stack (bot + MongoDB):
+Start app container (MongoDB runs on Atlas):
 
 ```bash
 docker compose up -d --build
-```
-
-Run only MongoDB (separate):
-
-```bash
-docker compose -f docker-compose.mongo.yml up -d
-```
-
-Then run bot with full compose later:
-
-```bash
-docker compose up -d --build app
 ```
 
 Stop containers:
 
 ```bash
 docker compose down
-docker compose -f docker-compose.mongo.yml down
 ```
 
 **📖 For detailed setup instructions, see [Getting Started Guide](./docs/GETTING_STARTED.md)**
